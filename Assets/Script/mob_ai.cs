@@ -6,6 +6,12 @@ using UnityEngine.AI;
 public class mob_ai : MonoBehaviour
 {
     //sfx
+    public AudioSource sound;
+    [SerializeField] private AudioSource whiteNoise;
+    [SerializeField] private AudioSource Noise;
+    public AudioClip shriek;
+    public AudioClip white_noise;
+    public AudioClip more_noise;
     public audio_manager AudioManager;
     
     public GameObject player;
@@ -35,6 +41,10 @@ public class mob_ai : MonoBehaviour
         lifeCountdown=15f;
         agent.updateRotation=false;
         InvokeRepeating("teleportation",5.0f,5.0f);
+        whiteNoise.clip=white_noise;
+        whiteNoise.Play();
+        Noise.clip=more_noise;
+        Noise.Play();
     }
     void Update()
     {
@@ -73,7 +83,8 @@ public class mob_ai : MonoBehaviour
         this.transform.position=tp_clone.transform.position;
         DestroyImmediate(tp_clone);
         Debug.Log("destroyed");
-        AudioManager.play_sfx(AudioManager.shriek);
+        //AudioManager.play_sfx(AudioManager.shriek);
+        sound.PlayOneShot(shriek);
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -81,7 +92,7 @@ public class mob_ai : MonoBehaviour
         if(other.gameObject==player)
         {
             Debug.Log("Gotcha");
-            AudioManager.play_sfx(AudioManager.eee);
+            sound.PlayOneShot(AudioManager.eee);
             lost_Ui.death_called();
 
         }
