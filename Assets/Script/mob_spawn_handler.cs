@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class mob_spawn_handler : MonoBehaviour
 {
+    public GameObject mob;
     public float spawn_cool_down;
     float nearestDistance=10000;
     float distance;
@@ -59,7 +60,8 @@ public class mob_spawn_handler : MonoBehaviour
     {
         GameObject clone= Instantiate(instantiate_animation,closest_point_to_player.transform.position,transform.rotation);
         yield return new WaitForSeconds(2f);
-        DestroyImmediate(clone);
+        Instantiate(mob,clone.transform.position,transform.rotation);
+        DestroyImmediate(clone);    
         //instantiate mob
     }
 }

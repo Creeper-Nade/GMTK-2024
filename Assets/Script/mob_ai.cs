@@ -9,7 +9,7 @@ public class mob_ai : MonoBehaviour
     public GameObject player;
     public GameObject tp_marker;
     public GameObject tp_clone;
-
+    public lost_ui lost_Ui;
     public GameObject mob;
 
     private Vector3 lastPos;
@@ -64,6 +64,7 @@ public class mob_ai : MonoBehaviour
         if(other.gameObject==player)
         {
             Debug.Log("Gotcha");
+            lost_Ui.death_called();
         }
     }
 }
