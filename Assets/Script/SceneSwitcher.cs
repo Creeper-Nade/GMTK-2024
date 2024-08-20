@@ -1,12 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    // 这个方法将在按钮点击时调用，用于切换场景
-    public void SwitchScene(string sceneName)
+    // 指定要切换的场景名称
+    public string sceneName = "OfficeAfternoon";
+
+    void Start()
     {
-        // 加载指定名称的场景
+        // 获取按钮组件并添加点击事件监听器
+        Button btn = GetComponent<Button>();
+        if (btn != null)
+        {
+            btn.onClick.AddListener(OnButtonClick);
+        }
+    }
+
+    void OnButtonClick()
+    {
+        // 切换到指定的场景
         SceneManager.LoadScene(sceneName);
     }
 }

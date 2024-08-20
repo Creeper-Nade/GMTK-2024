@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/School Day.unity
     guid: 428a34f2a1a34764492789726560b365
+  - enabled: 1
+    path: Assets/Scenes/School Night.unity
+    guid: 3635b067a03d42940bffef23124b49f2
   m_configObjects: {}
