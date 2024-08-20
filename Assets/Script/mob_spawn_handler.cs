@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class mob_spawn_handler : MonoBehaviour
 {
-    public GameObject mob;
+    public mob_ai mob;
+    public lost_ui lost_Ui;
     public float spawn_cool_down;
     float nearestDistance=10000;
     float distance;
@@ -15,11 +16,16 @@ public class mob_spawn_handler : MonoBehaviour
     public GameObject instantiate_animation;
     void Start()
     {
+        
         children= new GameObject[this.transform.childCount];
+        
         for (int i=0;i<children.Length;i++)
         {
+            
             children[i]=this.transform.GetChild(i).gameObject;
+            Debug.Log(children[i]);
         }
+        Debug.Log("initialized number of children :"+children.Length);
         spawn_cool_down=5f;
     }
 
@@ -41,8 +47,10 @@ public class mob_spawn_handler : MonoBehaviour
         Debug.Log("requested");
         if(spawn_cool_down<=0)
         {
+        Debug.Log("children being called :"+children.Length);
             for(int i=0; i<children.Length;i++)
             {
+                Debug.Log("check child");
                 distance=Vector3.Distance(player.transform.position,children[i].transform.position);
                 if(distance<nearestDistance)
                 {
@@ -60,7 +68,8 @@ public class mob_spawn_handler : MonoBehaviour
     {
         GameObject clone= Instantiate(instantiate_animation,closest_point_to_player.transform.position,transform.rotation);
         yield return new WaitForSeconds(2f);
-        Instantiate(mob,clone.transform.position,transform.rotation);
+        mob_ai newmob= Instantiate(mob,clone.transform.position,transform.rotation);
+        newmob.Init(player,lost_Ui);
         DestroyImmediate(clone);    
         //instantiate mob
     }

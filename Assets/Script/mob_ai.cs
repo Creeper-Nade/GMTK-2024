@@ -17,7 +17,15 @@ public class mob_ai : MonoBehaviour
 
     float lifeCountdown;
     public NavMeshAgent agent;
+
+    public void Init(GameObject play,lost_ui lost)
+    {
+        Debug.Log(play);
+        this.player=play;
+        this.lost_Ui=lost;
+    }
     private void Start() {
+        //player= GameObject.FindWithTag("Player");
         lifeCountdown=15f;
         agent.updateRotation=false;
         InvokeRepeating("teleportation",5.0f,5.0f);
@@ -39,6 +47,7 @@ public class mob_ai : MonoBehaviour
         }
         else
         {
+            DestroyImmediate(tp_clone);
             Destroy(mob);
         }
     }
@@ -61,10 +70,12 @@ public class mob_ai : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+
         if(other.gameObject==player)
         {
             Debug.Log("Gotcha");
             lost_Ui.death_called();
+
         }
     }
 }
