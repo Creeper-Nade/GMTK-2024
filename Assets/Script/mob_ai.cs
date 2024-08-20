@@ -5,11 +5,15 @@ using UnityEngine.AI;
 
 public class mob_ai : MonoBehaviour
 {
+    
     public GameObject player;
     public GameObject tp_marker;
     public GameObject tp_clone;
 
     public GameObject mob;
+
+    private Vector3 lastPos;
+    public Vector3 MovementDirection {get;private set;}
 
     float lifeCountdown;
     public NavMeshAgent agent;
@@ -20,10 +24,14 @@ public class mob_ai : MonoBehaviour
     }
     void Update()
     {
+        
         //movement
         Vector3 player_position= player.transform.position;
         agent.SetDestination(player_position);
 
+        MovementDirection= lastPos-transform.position;
+        MovementDirection.Normalize();
+        lastPos=transform.position;
         //detect lifetime
         if(lifeCountdown>0)
         {
@@ -35,10 +43,7 @@ public class mob_ai : MonoBehaviour
         }
     }
 
-    void selfDestruct()
-    {
-        
-    }
+
     private void teleportation()
     {
         Debug.Log("hi");
@@ -53,5 +58,12 @@ public class mob_ai : MonoBehaviour
         this.transform.position=tp_clone.transform.position;
         DestroyImmediate(tp_clone);
         Debug.Log("destroyed");
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject==player)
+        {
+            Debug.Log("Gotcha");
+        }
     }
 }
