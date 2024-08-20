@@ -44873,7 +44873,7 @@ Transform:
   m_GameObject: {fileID: 1191981659}
   serializedVersion: 2
   m_LocalRotation: {x: -0.11507507, y: 0.88111967, z: -0.277816, w: -0.36497152}
-  m_LocalPosition: {x: -2.313613, y: 0.55999994, z: 1.1268307}
+  m_LocalPosition: {x: -2.419, y: 0.48, z: 0.65}
   m_LocalScale: {x: 0.5, y: 0.29922023, z: 0.37622577}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88836,7 +88836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteAnimator: {fileID: 1191981662}
-  moveSpeed: 5
+  moveSpeed: 7
 --- !u!136 &1416410911
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -88856,10 +88856,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2954916
+  m_Radius: 0.8
   m_Height: 2.373949
   m_Direction: 1
-  m_Center: {x: -0.44176304, y: 0.18697453, z: -0.61948776}
+  m_Center: {x: -0.44176304, y: 0.48, z: -0.61948776}
 --- !u!23 &1416410912
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -104947,13 +104947,6 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
-    Iso: 200
-    ShutterSpeed: 0.005
-    Aperture: 16
-    BladeCount: 5
-    Curvature: {x: 2, y: 11}
-    BarrelClipping: 0.25
-    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
