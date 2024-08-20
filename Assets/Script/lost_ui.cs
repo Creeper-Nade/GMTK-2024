@@ -14,6 +14,7 @@ public class lost_ui : MonoBehaviour
 
     public void death_called()
     {
+        Debug.Log("ui");
         animator.SetTrigger("appear");
         world_space_stuff.SetActive(false);
     }
