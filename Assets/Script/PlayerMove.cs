@@ -1,29 +1,49 @@
 using UnityEngine;
-public class BasicMovement : MonoBehaviour
+
+public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public Transform cameraTransform;
+    public Animator spriteAnimator; // 引用子级Sprite的Animator
+    private Rigidbody rb; // 父级3D模型的刚体
 
-    void Update()
+    [SerializeField] private float moveSpeed = 5.0f;
+
+    private void Awake()
     {
-        float moveX = Input.GetAxis("Horizontal"); // 获取水平方向的输入 (A, D)
-        float moveZ = Input.GetAxis("Vertical");   // 获取垂直方向的输入 (W, S)
-
-        Vector3 move = new Vector3(moveX, 0, moveZ);
-
-        // 根据摄像机方向调整移动向量
-        Vector3 cameraForward = cameraTransform.forward;
-        Vector3 cameraRight = cameraTransform.right;
-
-        // 确保移动方向只在平面上，忽略y轴
-        cameraForward.y = 0;
-        cameraRight.y = 0;
-
-        cameraForward.Normalize();
-        cameraRight.Normalize();
-
-        Vector3 desiredMoveDirection = (cameraForward * move.z + cameraRight * move.x).normalized;
-
-        transform.Translate(desiredMoveDirection * moveSpeed * Time.deltaTime, Space.World);
+        rb = GetComponent<Rigidbody>();
     }
+
+    private void FixedUpdate()
+    {
+        // 获取输入
+        float moveH = Input.GetAxis("Horizontal");
+        float moveV = Input.GetAxis("Vertical");
+
+        // 根据摄像机角度转换输入方向
+        Vector3 movement = ConvertInputToWorldDirection(moveH, moveV) * moveSpeed;
+        rb.velocity = movement;
+
+        // 设置动画参数
+        spriteAnimator.SetFloat("Speed", rb.velocity.magnitude);
+
+        if (rb.velocity != Vector3.zero)
+        {
+            spriteAnimator.SetFloat("MoveX", movement.x);
+            spriteAnimator.SetFloat("MoveY", movement.z);
+        }
+        else
+        {
+            spriteAnimator.SetFloat("MoveX", 0);
+            spriteAnimator.SetFloat("MoveY", 0);
+        }
+    }
+
+    // 将输入转换为与摄像机视角对应的世界方向
+    private Vector3 ConvertInputToWorldDirection(float moveH, float moveV)
+{
+    // 摄像机旋转的四元数
+    Quaternion cameraRotation = Quaternion.Euler(0, -147, 0); 
+    Vector3 inputDirection = new Vector3(moveH, 0, moveV);
+    return cameraRotation * inputDirection;
+}
+
 }
