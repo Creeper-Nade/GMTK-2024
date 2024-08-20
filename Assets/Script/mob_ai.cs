@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class mob_ai : MonoBehaviour
 {
+    //sfx
+    public audio_manager AudioManager;
     
     public GameObject player;
     public GameObject tp_marker;
@@ -23,6 +25,10 @@ public class mob_ai : MonoBehaviour
         Debug.Log(play);
         this.player=play;
         this.lost_Ui=lost;
+    }
+    public void soundInit(audio_manager audio)
+    {
+        this.AudioManager=audio;
     }
     private void Start() {
         //player= GameObject.FindWithTag("Player");
@@ -67,6 +73,7 @@ public class mob_ai : MonoBehaviour
         this.transform.position=tp_clone.transform.position;
         DestroyImmediate(tp_clone);
         Debug.Log("destroyed");
+        AudioManager.play_sfx(AudioManager.shriek);
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -74,6 +81,7 @@ public class mob_ai : MonoBehaviour
         if(other.gameObject==player)
         {
             Debug.Log("Gotcha");
+            AudioManager.play_sfx(AudioManager.eee);
             lost_Ui.death_called();
 
         }
