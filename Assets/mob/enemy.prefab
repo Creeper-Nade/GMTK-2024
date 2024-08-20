@@ -10005,6 +10005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f058bae6c32624e8d72b1c6ff23bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioManager: {fileID: 6367297773710396983, guid: 2a4744f8737a7af46b17ec18c79656a2, type: 3}
   player: {fileID: 206106795840666200, guid: 6430238984b45944cade2a1704f0496d, type: 3}
   tp_marker: {fileID: 4362371250778891093, guid: 6e1df8c1952436940bdba67276c90fcc, type: 3}
   tp_clone: {fileID: 0}

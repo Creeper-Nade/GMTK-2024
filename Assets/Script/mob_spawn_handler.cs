@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class mob_spawn_handler : MonoBehaviour
 {
+    public audio_manager Audiomanager;
     public mob_ai mob;
     public lost_ui lost_Ui;
     public float spawn_cool_down;
@@ -70,6 +71,7 @@ public class mob_spawn_handler : MonoBehaviour
         yield return new WaitForSeconds(2f);
         mob_ai newmob= Instantiate(mob,clone.transform.position,transform.rotation);
         newmob.Init(player,lost_Ui);
+        newmob.soundInit(Audiomanager);
         DestroyImmediate(clone);    
         //instantiate mob
     }
