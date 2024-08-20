@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Home.unity
+    path: Assets/Scenes/Home Afternoon 1.unity
     guid: 278b3e4f14e4982459b205061be58d8d
   - enabled: 0
     path: Assets/Scenes/Home Day.unity
