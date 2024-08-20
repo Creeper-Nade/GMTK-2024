@@ -6,39 +6,39 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Home Afternoon 1.unity
+    path: Assets/Scenes/Home.unity
     guid: 278b3e4f14e4982459b205061be58d8d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Home Day.unity
     guid: 7ca2eac80dc3ad64d9c6848e36cb85cd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Home Night.unity
     guid: 47fa312b8f4cca74fae94b2887fa0529
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 64da54fad1508b647aa167c1fdb5c6f6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/office Afternoon.unity
     guid: 266908a3b15c4c248a8684b0c7364e70
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/office Afternoon 1.unity
     guid: 4d5760ccb6a912442a47fc5817cd7ff3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/office Day.unity
     guid: b293fdbb0885527448ec658ebe102077
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/office Night.unity
     guid: 20cc731da6c3a2645b1a7ad89b17ff1e
   - enabled: 1
     path: Assets/Scenes/Safe Room.unity
     guid: e9ba64bd70ac14b4f9c3a38933698705
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/School Afternoon.unity
     guid: c77442e544119374c94004f9b947d9c5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/School Day.unity
     guid: 428a34f2a1a34764492789726560b365
   - enabled: 1
-    path: Assets/Scenes/School Night.unity
+    path: Assets/Scenes/School.unity
     guid: 3635b067a03d42940bffef23124b49f2
   m_configObjects: {}
