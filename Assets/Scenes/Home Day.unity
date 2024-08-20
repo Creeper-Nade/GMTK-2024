@@ -87792,7 +87792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteAnimator: {fileID: 1621585546}
-  moveSpeed: 5
+  moveSpeed: 7
 --- !u!136 &1953672397
 CapsuleCollider:
   m_ObjectHideFlags: 0
