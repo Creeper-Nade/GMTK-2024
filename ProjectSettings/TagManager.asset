@@ -44,3 +44,6 @@ TagManager:
   - name: stock
     uniqueID: 3529825973
     locked: 0
+  - name: Player
+    uniqueID: 3952416265
+    locked: 0
